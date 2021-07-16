@@ -5,6 +5,8 @@ import Item from '../../Components/Item';
 import Computador from '../../assets/pc-gamer.png';
 import Iphone from '../../assets/iphone_12.png';
 import Tv from '../../assets/tv.png';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 
 import { Container, Content, Title, Products, Register, Form, Footer, TextFooter } from './styles';
@@ -14,14 +16,16 @@ const LandingPage: React.FC = () => {
 
   const addEmailInLocalstorage =(chave: string, valor: string) => {
     localStorage.setItem(chave, valor);
-    alert('Email cadastrado com sucesso')
+    toast.success('Email cadastrado com sucesso')
   }
   const ShowEmailInLocalstorage =(chave: string) => {
+    toast.info('Este é o email cadastrado')
     alert (localStorage.getItem(chave) )
   }
 
   return (
     <Container id="home">
+      <ToastContainer />
       <Header />
       <Content>
         <Title id="products">Preços imbativeis!</Title>
